@@ -1,8 +1,9 @@
-const { CLIEngine } = require("eslint");
 const express= require("express");
 const app=express();
 const path=require('path');
 app.listen(3030);
+
+app.use(express.static("public")) //fija una ruta para que los archivos html puedan buscar los archivos estaticos como img o css
 
 app.get("/",(req,res)=>{res.sendFile(path.join(__dirname,'/views/index.html'))})
 app.get("/clarke",(req,res)=>{res.sendFile(path.join(__dirname,'/views/clarke.html'))})
